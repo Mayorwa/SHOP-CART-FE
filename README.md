@@ -1,4 +1,4 @@
-# Vue.js Shopping Cart App
+# Shopping Cart App
 
 The Shopping Cart App FE is built with Vue.js. It allows users to login, register,  browse products and add them to their cart. 
 
