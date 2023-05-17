@@ -1,0 +1,106 @@
+.button {
+    min-height: 50px;
+    border-radius: 5px;
+    padding: 0 24px;
+    border: 1px solid transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all .5s;
+    white-space: nowrap;
+    height: fit-content;
+    @include text-xxs;
+
+    &--primary{
+        background-color: $cl-black-90;
+        color: $cl-white;
+        border-color: rgba($cl-black-90, 0.4);
+        &:hover {
+            border-color: $cl-black;
+            color: $cl-white;
+            background-color: $cl-black;
+        }
+        &:disabled {
+            background-color: $cl-black-90;
+            color: $cl-white;
+        }
+    }
+
+    &--secondary{
+        background-color: rgba($cl-black-90, .4);
+        color: $cl-white;
+        &:hover {
+            border-color: $cl-black;
+            color: $cl-white;
+            background-color: rgba($cl-black-90, .6);
+        }
+    }
+
+    &--outline{
+        background: transparent;
+        border: 1px solid rgba(0, 0, 0, 0.6);
+        color: #000000;
+        &:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+    }
+
+    &--outline-light{
+        background: transparent;
+        border: 1px solid #E2E2E5;
+        color: #E2E2E5;
+        &:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+    }
+
+    &--outline-gray{
+        background: transparent;
+        border: 1px solid rgba($cl-black-90, 0.4);
+        color: $cl-black-90;
+        &:hover {
+            background: transparent;
+            border: 1px solid rgba($cl-black-90, 0.4);
+        }
+    }
+
+    &--outline-black{
+        background: transparent;
+        border: 1px solid $cl-black-90;
+        color: $cl-black-90;
+        &:hover {
+            border: 1px solid $cl-black-90;
+            background: rgba($cl-black-90, 0.1);
+        }
+        &:disabled{
+            opacity: 0.4 !important;
+        }
+    }
+
+    &:disabled {
+        pointer-events: auto;
+        opacity: .8;
+        cursor: not-allowed;
+    }
+}
+
+.badge{
+    border-radius: 1px;
+    @include text-3xs;
+}
+
+.badge{
+    &--gray{
+        background: var(--bs-gray-100);
+        color: var(--bs-gray-800);
+        border: 1px solid var(--bs-gray-500);
+        &.active{
+            background: var(--bs-gray-200);
+            color: var(--bs-gray-800);
+            border: 1px solid var(--bs-gray-400);
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.modal{
+  &-icon{
+    border: 1.5px solid $border-grey-1;
+    padding: 8px;
+    justify-self: flex-end;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 8px;
+    margin-left: auto;
+    cursor: pointer;
+    transition: all .5s;
+    .icon{
+      transform: rotate(0deg);
+      transition: all .5s;
+    }
+    &:hover{
+      .icon{
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &_wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(107, 114, 128, 0.75);
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  &_body{
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    position: fixed;
+    max-width: 28rem;
+    width: 100%;
+    overflow: hidden;
+    height: fit-content;
+    z-index: 20;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, var(--tw-shadow);
+    transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+}
+.left-0{
+  left: 0;
+}

@@ -1,0 +1,82 @@
+$breakpoints: (
+  'small-mobile': 450px,
+  'mobile': 650px,
+  'lg-mobile': 768px,
+  'tablet': 900px,
+  'desktop-l': 1024px,
+  'desktop-bp': 1179px,
+  'desktop-xl': 1280px,
+  'desktop-xxl': 1480px,
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (max-width: #{inspect(map-get($breakpoints, $breakpoint))}) {
+      @content;
+    }
+  }
+
+    // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+@mixin respond-from($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: #{inspect(map-get($breakpoints, $breakpoint))}) {
+      @content;
+    }
+  }
+
+    // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin font-1 {
+  font-family: 'DM Sans', sans-serif;
+}
+
+@mixin font-2 {
+  font-family: 'Work Sans', sans-serif;
+}
+
+@mixin text-sm {
+  font-size: 1.125rem;
+  line-height: 1.2rem;
+  @include font-2;
+}
+
+@mixin text-xs {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1rem;
+  @include font-2;
+}
+
+@mixin text-xxs {
+  font-weight: 400;
+  font-size: 0.94rem;
+  line-height: 1rem;
+  @include font-2;
+}
+
+@mixin text-3xs {
+  font-weight: 400;
+  font-size: 0.84rem;
+  line-height: 1rem;
+  @include font-2;
+}
