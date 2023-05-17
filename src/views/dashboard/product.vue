@@ -43,7 +43,7 @@ export default defineComponent({
   components: { Notification },
   setup() {
     const product = useProduct()
-    const loading = ref(false)
+    const loading = ref(true)
 
     const productDetail = ref()
     const formatAmount = amount => {
