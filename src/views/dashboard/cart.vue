@@ -3,20 +3,11 @@
   <div v-if="loading"></div>
   <div v-if="cartProducts.length">
     <div class="grid grid-cols-1 gap-4">
-      <div
-        class="rounded overflow-hidden shadow-lg bg-white"
+      <cart-item-card
         v-for="(item, index) in cartProducts"
         :key="index"
-      >
-        <!--      <img class="w-full h-56 object-cover" src="product-image.jpg" alt="Product Image">-->
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">{{ item.product.title }}</div>
-          <p class="text-gray-700 text-base">quantity: {{ item.quantity }}</p>
-          <p class="text-gray-900 font-bold mt-2">
-            {{ formatTransactionAmount(item.product.price) }}
-          </p>
-        </div>
-      </div>
+        :itemDetails="item"
+      ></cart-item-card>
     </div>
     <Pagination
       :page-count="productsMetaData.last_page"
@@ -37,13 +28,13 @@
 </template>
 <script>
 import { useCart } from '@/store/cart/useCart'
-import { formatNumber } from '@/utils/helpers/index'
 import Notification from '@/components/ui/Notification.vue'
 import Pagination from '@/components/ui/Table/Pagination.vue'
+import CartItemCard from '@/components/dashboard/cart/CartItemCard.vue'
 import { defineComponent, ref, reactive, onMounted, toRefs } from 'vue'
 export default defineComponent({
   name: 'DashboardIndex',
-  components: { Notification, Pagination },
+  components: { Notification, Pagination, CartItemCard },
   setup() {
     const cart = useCart()
     const loading = ref(false)
@@ -59,10 +50,6 @@ export default defineComponent({
     onMounted(() => {
       getCartProducts()
     })
-
-    const formatTransactionAmount = amount => {
-      return `${formatNumber(amount, true)}`
-    }
 
     const removeNotificationAfterFewSeconds = () => {
       setTimeout(() => {
@@ -105,7 +92,6 @@ export default defineComponent({
       productsMetaData,
       notification,
       activateNotification,
-      formatTransactionAmount,
       removeNotificationAfterFewSeconds,
     }
   },

@@ -52,7 +52,6 @@ export default defineComponent({
       }, 200)
     }
     const showProfile = () => {
-      console.log('in here')
       isShowProfile.value = !isShowProfile.value
     }
 
