@@ -8,7 +8,7 @@
       :size="'md'"
       type="submit"
       name="nextButton"
-      @click="$router.push('/dashboard')"
+      @click="$router.push('/products')"
     >
       <span>Go Back Home </span>
     </Button>

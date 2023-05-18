@@ -13,7 +13,7 @@
       :inactive="false"
       variant="primary"
       size="md"
-      @click="$router.push('/logout')"
+      @click="logout()"
     >
       <Icon name="logout" width="16px" height="16px" />
       <span class="ms-3">Log Out </span>
@@ -24,6 +24,7 @@
 import { defineComponent } from 'vue'
 import Button from '@/components/ui/Button'
 import Icon from '@/components/ui/Icon'
+import { logoutOnAll } from '@/utils/logout'
 export default defineComponent({
   name: 'LoadingError',
   props: {
@@ -36,5 +37,12 @@ export default defineComponent({
     },
   },
   components: { Button, Icon },
+  setup() {
+    const logout = () => {
+      logoutOnAll()
+    }
+
+    return { logout }
+  },
 })
 </script>

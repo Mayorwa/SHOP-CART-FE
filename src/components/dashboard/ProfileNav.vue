@@ -24,7 +24,7 @@
         <ul class="py-2 text-sm text-gray-700">
           <li
             class="flex items-center px-4 py-2 drop-nav-item"
-            @click="$router.push('/logout')"
+            @click="logout()"
           >
             <Icon name="logout" width="16px" height="16px" />
             <a href="#" class="block ml-2 text-black">Logout</a>
@@ -37,6 +37,7 @@
 <script>
 import { computed, defineComponent, ref } from 'vue'
 import Icon from '@/components/ui/Icon.vue'
+import { logoutOnAll } from '@/utils/logout'
 import { useAuth } from '@/store/auth/useAuth'
 export default defineComponent({
   name: 'ProfileNav',
@@ -45,6 +46,10 @@ export default defineComponent({
     const auth = useAuth()
 
     const { userInfo } = auth
+
+    const logout = () => {
+      logoutOnAll()
+    }
 
     const hideTopNavBarPopUp = () => {
       setTimeout(() => {
@@ -66,6 +71,7 @@ export default defineComponent({
 
     return {
       userName,
+      logout,
       isShowProfile,
       hideTopNavBarPopUp,
       showProfile,
