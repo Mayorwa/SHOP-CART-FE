@@ -35,6 +35,9 @@
   },
   "eslintConfig": {
     "root": true,
+    "rules": {
+      "no-undef": "off"
+    },
     "env": {
       "node": true
     },
@@ -46,37 +49,7 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser",
       "requireConfigFile": false
-    },
-    "rules": {},
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      },
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      },
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ]
+    }
   },
   "browserslist": [
     "> 1%",

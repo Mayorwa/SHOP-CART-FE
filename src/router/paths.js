@@ -3,6 +3,10 @@ import VisitorGuard from '@/router/visitor-guard'
 
 const paths = [
   {
+    path: '/',
+    redirect: '/login',
+  },
+  {
     path: '/login',
     component: () => import('../views/authentication/login.vue'),
     name: 'Login',
